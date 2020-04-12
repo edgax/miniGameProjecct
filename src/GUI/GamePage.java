@@ -543,6 +543,21 @@ public class GamePage extends javax.swing.JFrame {
             String Supplier =  SupplierInput.getText();
             int Price = Integer.parseInt(PriceInput.getText());
             
+            if (GameName.equals(""))
+                 {
+                     JOptionPane.showMessageDialog(null, "GameName is Empty");
+                 }
+             if (Supplier.equals("")){
+                       JOptionPane.showMessageDialog(null, "Supplier Info is Empty");
+                }
+             
+            if (PriceInput.getText().equals("")){
+                       JOptionPane.showMessageDialog(null, " is Empty");
+                } 
+           
+            
+            
+            
             System.out.print(GameName);
             System.out.print(Supplier);
             System.out.print(Price);
@@ -563,6 +578,7 @@ public class GamePage extends javax.swing.JFrame {
         }
         catch(SQLException sqlex){
             System.err.println(sqlex.getMessage());
+            JOptionPane.showMessageDialog(null, "Game Failed Added to Inventory ");
         }
         finally {
 
