@@ -338,10 +338,6 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="SupplierInput" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel6" min="-2" pref="169" max="-2" attributes="0"/>
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -355,6 +351,10 @@
                                       <Component id="jLabel9" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="SupplierInput" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -439,7 +439,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Game_Name"/>
+            <Property name="text" type="java.lang.String" value="GameName"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="PriceInput">
@@ -507,9 +507,7 @@
         <Component class="javax.swing.JComboBox" name="GameName">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
-                <StringItem index="0" value="GameSelected"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>

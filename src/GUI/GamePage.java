@@ -24,8 +24,10 @@ public class GamePage extends javax.swing.JFrame {
      * Creates new form GUI
      */
     
+    
     public GamePage() {
         initComponents();
+        comboxGameSelected ();
     }
     
 
@@ -257,7 +259,7 @@ public class GamePage extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("Game_Name");
+        jLabel8.setText("GameName");
 
         PriceInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,7 +302,6 @@ public class GamePage extends javax.swing.JFrame {
             }
         });
 
-        GameName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GameSelected" }));
         GameName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GameNameActionPerformed(evt);
@@ -331,9 +332,6 @@ public class GamePage extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(SupplierInput)
-                                .addGap(296, 296, 296))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -343,7 +341,10 @@ public class GamePage extends javax.swing.JFrame {
                                             .addComponent(ADDGAME, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE))
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(SupplierInput)
+                                .addGap(362, 362, 362)))
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
@@ -534,17 +535,7 @@ public class GamePage extends javax.swing.JFrame {
             String Supplier =  SupplierInput.getText();
             int Price = Integer.parseInt(PriceInput.getText());
             
-            if (GameName.equals(""))
-                 {
-                     JOptionPane.showMessageDialog(null, "GameName is Empty");
-                 }
-             if (Supplier.equals("")){
-                       JOptionPane.showMessageDialog(null, "Supplier Info is Empty");
-                }
-             
-            if (PriceInput.getText().equals("")){
-                       JOptionPane.showMessageDialog(null, " is Empty");
-                } 
+           
            
             
             
@@ -559,9 +550,31 @@ public class GamePage extends javax.swing.JFrame {
             //Preparing The statement 
             PreparedStatement ps = connection.prepareStatement(sql);
             
-            ps.setString(1, GameName);
-            ps.setString(2, Supplier);
-            ps.setInt(3, Price);
+            
+            
+            if (GameName.equals(""))
+                 {
+                     JOptionPane.showMessageDialog(null, "GameName is Empty");
+                 }
+             else
+                {
+                 ps.setString(1, GameName);
+                }
+            
+            if (Supplier.equals("")){
+                       JOptionPane.showMessageDialog(null, "Supplier Info is Empty");
+                }
+            else{
+                 ps.setString(2, Supplier);
+                }
+            
+            if (PriceInput.getText().equals("")){
+                       JOptionPane.showMessageDialog(null, " is Empty");
+                }
+            else{
+                 ps.setInt(3, Price);
+                }
+          
             
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Game Added to Inventory Successfully");
@@ -593,7 +606,12 @@ public class GamePage extends javax.swing.JFrame {
 
     private void GameNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GameNameActionPerformed
         // TODO add your handling code here
-             // TODO add your handling code here:
+       
+    }//GEN-LAST:event_GameNameActionPerformed
+
+    private void comboxGameSelected ()
+    {
+              // TODO add your handling code here:
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
@@ -632,14 +650,15 @@ public class GamePage extends javax.swing.JFrame {
             
             rs.close();
             ps.close();
+            connection.close();
     
             
         }
         catch(SQLException sqlex){
             System.err.println(sqlex.getMessage());
         }       
-    }//GEN-LAST:event_GameNameActionPerformed
-
+    }
+    
     /**
      * @param args the command line arguments
      */
