@@ -5,29 +5,18 @@
  */
 package GUI;
 
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
-/**
 /**
  *
  * @author edga1
  */
-public class ShowGamePage extends javax.swing.JFrame {
+public class HomePageManagment extends javax.swing.JFrame {
 
     /**
      * Creates new form GUI
      */
-    
-    public ShowGamePage() {
+    public HomePageManagment() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,14 +43,8 @@ public class ShowGamePage extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        ShowAllGame = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        GameTable = new javax.swing.JTable();
-        SearchGame = new javax.swing.JButton();
-        GameNameInput = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -252,69 +235,20 @@ public class ShowGamePage extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(153, 204, 255));
 
-        ShowAllGame.setText("Show All Games");
-        ShowAllGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShowAllGameActionPerformed(evt);
-            }
-        });
-
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Display Game");
+        jLabel10.setText("Welcome Employees");
 
-        jLabel2.setText("___________________________________________________________________________________________________________________________");
-
-        GameTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Game_ID", "GameName", "Supplier", "Price"
-            }
-        ));
-        jScrollPane1.setViewportView(GameTable);
-
-        SearchGame.setText("Search Game");
-        SearchGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchGameActionPerformed(evt);
-            }
-        });
-
-        GameNameInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GameNameInputActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("GameName");
+        jLabel2.setText("______________________________________________________________________________________________________________________________");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 791, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                                .addComponent(ShowAllGame, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(GameNameInput, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(SearchGame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                                .addGap(43, 43, 43))))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(260, 260, 260)
+                .addComponent(jLabel10)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -324,168 +258,13 @@ public class ShowGamePage extends javax.swing.JFrame {
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(GameNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ShowAllGame, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchGame, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addContainerGap(523, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 880, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ShowAllGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAllGameActionPerformed
-        // TODO add your handling code here:
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
-        
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            
-           
-            
-            // Creating SQL Statment 
-            String sql = "SELECT * FROM Game";
-            
-            //Preparing The statement 
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            DefaultTableModel tm =(DefaultTableModel)GameTable.getModel();
-            tm.setRowCount(0);
-            
-            while(rs.next())
-            {
-                 Object o[]={rs.getInt("Game_ID"),rs.getString("GameName"),rs.getString("Supplier"),rs.getInt("Price")};
-                 tm.addRow(o);
-            }
-            
-            
-            //ps.setString(1, username);
-            //ps.setString(2, password);
-            //ps.setString(3, email);
-            //ps.executeUpdate();
-            
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
-
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-        }
-
-        
-        
-    }//GEN-LAST:event_ShowAllGameActionPerformed
-
-    private void SearchGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchGameActionPerformed
-          // TODO add your handling code here:
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
-        
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            String GameName = GameNameInput.getText();
-           
-            
-            // Creating SQL Statment 
-            String sql = "SELECT * FROM Game WHERE GameName = ?";
-            
-            //Preparing The statement 
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, GameName);
-            
-            ResultSet rs = ps.executeQuery();
-            DefaultTableModel tm =(DefaultTableModel)GameTable.getModel();
-            tm.setRowCount(0);
-            
-            while(rs.next())
-            {
-                 Object o[]={rs.getInt("Game_ID"),rs.getString("GameName"),rs.getString("Supplier"),rs.getInt("Price")};
-                 tm.addRow(o);
-            }
-            
-            
-            //ps.setString(1, username);
-            //ps.setString(2, password);
-            //ps.setString(3, email);
-            //ps.executeUpdate();
-            
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
-
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-        }
-
-        
-    }//GEN-LAST:event_SearchGameActionPerformed
-
-    private void GameNameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GameNameInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GameNameInputActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -510,14 +289,14 @@ public class ShowGamePage extends javax.swing.JFrame {
     private void ShowGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowGameActionPerformed
         // TODO add your handling code here:
         new ShowGamePage().setVisible(true);
-
+        
         this.dispose();
     }//GEN-LAST:event_ShowGameActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
         new RemoveUser().setVisible(true);
-
+        
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -528,9 +307,6 @@ public class ShowGamePage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
- 
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -545,46 +321,31 @@ public class ShowGamePage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ShowGamePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePageManagment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ShowGamePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePageManagment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ShowGamePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePageManagment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ShowGamePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePageManagment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ShowGamePage().setVisible(true);
+                new HomePageManagment().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddorRemoveGame;
-    private javax.swing.JTextField GameNameInput;
-    private javax.swing.JTable GameTable;
     private javax.swing.JButton RegisterEmployees;
-    private javax.swing.JButton SearchGame;
-    private javax.swing.JButton ShowAllGame;
     private javax.swing.JButton ShowGame;
     private javax.swing.JButton ShowUsers;
     private javax.swing.JButton jButton2;
@@ -593,7 +354,6 @@ public class ShowGamePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -602,6 +362,5 @@ public class ShowGamePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

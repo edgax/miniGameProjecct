@@ -129,29 +129,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel4" max="32767" attributes="0"/>
               <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
-              <Component id="AddorRemoveGame" alignment="0" max="32767" attributes="0"/>
-              <Component id="ShowUsers" alignment="0" max="32767" attributes="0"/>
-              <Component id="ShowGame" alignment="1" max="32767" attributes="0"/>
+              <Component id="jButton5" alignment="1" max="32767" attributes="0"/>
               <Component id="jButton6" alignment="1" max="32767" attributes="0"/>
-              <Component id="RegisterEmployees" alignment="0" max="32767" attributes="0"/>
+              <Component id="ShowGame" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" pref="73" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="AddorRemoveGame" min="-2" pref="73" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Component id="ShowUsers" min="-2" pref="73" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="ShowGame" min="-2" pref="73" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="jButton5" min="-2" pref="73" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="jButton6" min="-2" pref="73" max="-2" attributes="0"/>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
-                  <Component id="RegisterEmployees" min="-2" pref="73" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="ShowGame" min="-2" pref="73" max="-2" attributes="0"/>
+                  <EmptySpace pref="83" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -206,37 +201,15 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="AddorRemoveGame">
+        <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ADD/Remove Game"/>
+            <Property name="text" type="java.lang.String" value="Rent/Purchase Games"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddorRemoveGameActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="ShowUsers">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="99" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="ShowUsers"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowUsersActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="ShowGame">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="99" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="ShowGame"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowGameActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton6">
@@ -244,21 +217,21 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Remove Users"/>
+            <Property name="text" type="java.lang.String" value="Return Rents/Purchase Game"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="RegisterEmployees">
+        <Component class="javax.swing.JButton" name="ShowGame">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Register Employees"/>
+            <Property name="text" type="java.lang.String" value="Show Game"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegisterEmployeesActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowGameActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -336,12 +309,12 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="791" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="ShowUser" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="ShowAllGame" min="-2" pref="178" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel3" max="32767" attributes="0"/>
-                                      <Component id="UsernameInput" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="SearchUsers" alignment="1" pref="178" max="32767" attributes="0"/>
+                                      <Component id="GameNameInput" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="SearchGame" alignment="1" pref="178" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               </Group>
@@ -366,11 +339,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel3" pref="26" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="UsernameInput" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="GameNameInput" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ShowUser" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
-                      <Component id="SearchUsers" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="ShowAllGame" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="SearchGame" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="299" max="-2" attributes="0"/>
@@ -380,12 +353,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="ShowUser">
+        <Component class="javax.swing.JButton" name="ShowAllGame">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Show All Users"/>
+            <Property name="text" type="java.lang.String" value="Show All Games"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowUserActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowAllGameActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
@@ -394,7 +367,7 @@
               <Font name="Tahoma" size="24" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Display User"/>
+            <Property name="text" type="java.lang.String" value="Display Game"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -409,14 +382,14 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="UserTable">
+            <Component class="javax.swing.JTable" name="GameTable">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="User_ID" type="java.lang.Object"/>
-                    <Column editable="true" title="Username" type="java.lang.Object"/>
-                    <Column editable="true" title="Password" type="java.lang.Object"/>
-                    <Column editable="true" title="Email" type="java.lang.Object"/>
+                    <Column editable="true" title="Game_ID" type="java.lang.Object"/>
+                    <Column editable="true" title="GameName" type="java.lang.Object"/>
+                    <Column editable="true" title="Supplier" type="java.lang.Object"/>
+                    <Column editable="true" title="Price" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -450,22 +423,22 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="SearchUsers">
+        <Component class="javax.swing.JButton" name="SearchGame">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Search Users"/>
+            <Property name="text" type="java.lang.String" value="Search Game"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchUsersActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SearchGameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="UsernameInput">
+        <Component class="javax.swing.JTextField" name="GameNameInput">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UsernameInputActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GameNameInputActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Username "/>
+            <Property name="text" type="java.lang.String" value="GameName"/>
           </Properties>
         </Component>
       </SubComponents>

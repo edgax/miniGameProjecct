@@ -5,6 +5,7 @@
  */
 package GUI;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,19 +13,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
-
+/**
 /**
  *
  * @author edga1
  */
-public class ReturnPage extends javax.swing.JFrame {
+public class ShowGamePageCostumer extends javax.swing.JFrame {
 
     /**
      * Creates new form GUI
      */
-    public ReturnPage() {
+    
+    public ShowGamePageCostumer() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,21 +51,15 @@ public class ReturnPage extends javax.swing.JFrame {
         ShowGame = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Rent_table = new javax.swing.JTable();
-        Show_Rent_info = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        ShowAllGame = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        User_name = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        GameTable = new javax.swing.JTable();
+        SearchGame = new javax.swing.JButton();
+        GameNameInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        Rent_ID = new javax.swing.JTextField();
-        Return_Game = new javax.swing.JButton();
-        FindName = new javax.swing.JButton();
-        name = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        gameName = new javax.swing.JTextField();
-        FindGame = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -187,7 +184,7 @@ public class ReturnPage extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(47, 47, 47)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,7 +192,7 @@ public class ReturnPage extends javax.swing.JFrame {
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(ShowGame, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 85, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 340, 630));
@@ -230,7 +227,22 @@ public class ReturnPage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        Rent_table.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel10.setBackground(new java.awt.Color(153, 204, 255));
+
+        ShowAllGame.setText("Show All Games");
+        ShowAllGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowAllGameActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Display Game");
+
+        jLabel2.setText("___________________________________________________________________________________________________________________________");
+
+        GameTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -238,85 +250,76 @@ public class ReturnPage extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Rent_ID", "UserName", "Game_Name", "Date"
+                "Game_ID", "GameName", "Supplier", "Price"
             }
         ));
-        jScrollPane1.setViewportView(Rent_table);
+        jScrollPane1.setViewportView(GameTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 790, 310));
-
-        Show_Rent_info.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        Show_Rent_info.setText("Show All Rent Info");
-        Show_Rent_info.addActionListener(new java.awt.event.ActionListener() {
+        SearchGame.setText("Search Game");
+        SearchGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Show_Rent_infoActionPerformed(evt);
+                SearchGameActionPerformed(evt);
             }
         });
-        getContentPane().add(Show_Rent_info, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 360, 220, 40));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Return Game");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 110, 40));
-        getContentPane().add(User_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 180, 30));
-
-        jLabel3.setText("User Name");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 70, 30));
-
-        jLabel5.setText("Rent ID");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, -1, 20));
-        getContentPane().add(Rent_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 180, 30));
-
-        Return_Game.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Return_Game.setText("Return");
-        Return_Game.addActionListener(new java.awt.event.ActionListener() {
+        GameNameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Return_GameActionPerformed(evt);
+                GameNameInputActionPerformed(evt);
             }
         });
-        getContentPane().add(Return_Game, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 290, 110, 40));
 
-        FindName.setText("Find Name");
-        FindName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FindNameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(FindName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 180, 140, 30));
+        jLabel3.setText("GameName");
 
-        name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 140, 170, 30));
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 791, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addComponent(ShowAllGame, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(GameNameInput, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(SearchGame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                                .addGap(43, 43, 43))))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(213, 213, 213)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(GameNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ShowAllGame, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchGame, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("User Name");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 110, 80, 20));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Game Name");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 230, 90, 20));
-
-        gameName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gameNameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(gameName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 260, 170, 30));
-
-        FindGame.setText("Find Game");
-        FindGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FindGameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(FindGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 300, 140, 30));
+        getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 880, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Show_Rent_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Rent_infoActionPerformed
+    private void ShowAllGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAllGameActionPerformed
         // TODO add your handling code here:
         Connection connection = null;
         Statement statement = null;
@@ -341,22 +344,27 @@ public class ReturnPage extends javax.swing.JFrame {
             //Delcaring Variable 
             
            
+            
             // Creating SQL Statment 
-            String sql = "SELECT * FROM Rent";
+            String sql = "SELECT * FROM Game";
             
             //Preparing The statement 
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
+            DefaultTableModel tm =(DefaultTableModel)GameTable.getModel();
             tm.setRowCount(0);
             
             while(rs.next())
             {
-                 Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
+                 Object o[]={rs.getInt("Game_ID"),rs.getString("GameName"),rs.getString("Supplier"),rs.getInt("Price")};
                  tm.addRow(o);
             }
             
-
+            
+            //ps.setString(1, username);
+            //ps.setString(2, password);
+            //ps.setString(3, email);
+            //ps.executeUpdate();
             
         }
         catch(SQLException sqlex){
@@ -375,13 +383,14 @@ public class ReturnPage extends javax.swing.JFrame {
         catch (SQLException sqlex) {
             System.err.println(sqlex.getMessage());
         }
-         }
-        
-        
-    }//GEN-LAST:event_Show_Rent_infoActionPerformed
+        }
 
-    private void Return_GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Return_GameActionPerformed
-        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_ShowAllGameActionPerformed
+
+    private void SearchGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchGameActionPerformed
+          // TODO add your handling code here:
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
@@ -403,92 +412,32 @@ public class ReturnPage extends javax.swing.JFrame {
             connection = DriverManager.getConnection(dbURL);
           
             //Delcaring Variable 
-            
-            String username =  User_name.getText();
-            int RentId = Integer.parseInt(Rent_ID.getText());
-            
-            System.out.print(username);
+            String GameName = GameNameInput.getText();
            
             
             // Creating SQL Statment 
-            String sql = "DELETE FROM Rent WHERE Rent_ID = ? AND Username = ?";
+            String sql = "SELECT * FROM Game WHERE GameName = ?";
             
             //Preparing The statement 
             PreparedStatement ps = connection.prepareStatement(sql);
-            
-            ps.setInt(1, RentId);
-            ps.setString(2, username);
-            
-            ps.executeUpdate();
-            
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
-
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-        }
-    }//GEN-LAST:event_Return_GameActionPerformed
-
-    private void gameNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gameNameActionPerformed
-
-    private void FindNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindNameActionPerformed
-        // TODO add your handling code here:
-         Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
-        
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            String Username = name.getText();
-           
-            
-            // Creating SQL Statment 
-            String sql = "SELECT * FROM Rent WHERE UserName = ?";
-            
-            //Preparing The statement 
-            PreparedStatement ps = connection.prepareStatement(sql);
-            
-            ps.setString(1,Username);
+            ps.setString(1, GameName);
             
             ResultSet rs = ps.executeQuery();
-            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
+            DefaultTableModel tm =(DefaultTableModel)GameTable.getModel();
             tm.setRowCount(0);
             
             while(rs.next())
             {
-                 Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
+                 Object o[]={rs.getInt("Game_ID"),rs.getString("GameName"),rs.getString("Supplier"),rs.getInt("Price")};
                  tm.addRow(o);
             }
-           
+            
+            
+            //ps.setString(1, username);
+            //ps.setString(2, password);
+            //ps.setString(3, email);
+            //ps.executeUpdate();
+            
         }
         catch(SQLException sqlex){
             System.err.println(sqlex.getMessage());
@@ -507,75 +456,13 @@ public class ReturnPage extends javax.swing.JFrame {
             System.err.println(sqlex.getMessage());
         }
         }
-    }//GEN-LAST:event_FindNameActionPerformed
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
-
-    private void FindGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindGameActionPerformed
-        // TODO add your handling code here:
-         Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
         
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            String GameName = gameName.getText();
-           
-            
-            // Creating SQL Statment 
-            String sql = "SELECT * FROM Rent WHERE GameName = ?";
-            
-            //Preparing The statement 
-            PreparedStatement ps = connection.prepareStatement(sql);
-            
-            ps.setString(1,GameName);
-            
-            ResultSet rs = ps.executeQuery();
-            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
-            tm.setRowCount(0);
-            
-            while(rs.next())
-            {
-                 Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
-                 tm.addRow(o);
-            }
-           
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
+    }//GEN-LAST:event_SearchGameActionPerformed
 
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-        }
-    }//GEN-LAST:event_FindGameActionPerformed
+    private void GameNameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GameNameInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GameNameInputActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -608,6 +495,9 @@ public class ReturnPage extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+ 
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -622,14 +512,42 @@ public class ReturnPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReturnPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowGamePageCostumer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReturnPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowGamePageCostumer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReturnPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowGamePageCostumer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReturnPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowGamePageCostumer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -638,39 +556,33 @@ public class ReturnPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReturnPage().setVisible(true);
+                new ShowGamePageCostumer().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton FindGame;
-    private javax.swing.JButton FindName;
-    private javax.swing.JTextField Rent_ID;
-    private javax.swing.JTable Rent_table;
-    private javax.swing.JButton Return_Game;
+    private javax.swing.JTextField GameNameInput;
+    private javax.swing.JTable GameTable;
+    private javax.swing.JButton SearchGame;
+    private javax.swing.JButton ShowAllGame;
     private javax.swing.JButton ShowGame;
-    private javax.swing.JButton Show_Rent_info;
-    private javax.swing.JTextField User_name;
-    private javax.swing.JTextField gameName;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField name;
     // End of variables declaration//GEN-END:variables
 }

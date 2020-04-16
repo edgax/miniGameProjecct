@@ -46,10 +46,11 @@ public class ShowUserPage extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        AddorRemoveGame = new javax.swing.JButton();
+        ShowUsers = new javax.swing.JButton();
+        ShowGame = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        RegisterEmployees = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
@@ -147,35 +148,43 @@ public class ShowUserPage extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(153, 255, 255));
-        jButton3.setText("RegisterPage");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AddorRemoveGame.setBackground(new java.awt.Color(153, 255, 255));
+        AddorRemoveGame.setText("ADD/Remove Game");
+        AddorRemoveGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AddorRemoveGameActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(153, 255, 255));
-        jButton4.setText("Managment GamesStore");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        ShowUsers.setBackground(new java.awt.Color(153, 255, 255));
+        ShowUsers.setText("ShowUsers");
+        ShowUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                ShowUsersActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(153, 255, 255));
-        jButton5.setText("Rent/Purchase Games");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        ShowGame.setBackground(new java.awt.Color(153, 255, 255));
+        ShowGame.setText("ShowGame");
+        ShowGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                ShowGameActionPerformed(evt);
             }
         });
 
         jButton6.setBackground(new java.awt.Color(153, 255, 255));
-        jButton6.setText("Return Rents/Purchase Game");
+        jButton6.setText("Remove Users");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
+            }
+        });
+
+        RegisterEmployees.setBackground(new java.awt.Color(153, 255, 255));
+        RegisterEmployees.setText("Register Employees");
+        RegisterEmployees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterEmployeesActionPerformed(evt);
             }
         });
 
@@ -185,26 +194,28 @@ public class ShowUserPage extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(AddorRemoveGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ShowUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ShowGame, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(RegisterEmployees, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(29, 29, 29)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddorRemoveGame, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(ShowUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ShowGame, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(RegisterEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 340, 630));
@@ -330,40 +341,6 @@ public class ShowUserPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        new HomePage().setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        new RegisterPage().setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new ManagementPage().setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        new PurchasePage().setVisible(true);
-        
-        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        new ReturnPage().setVisible(true);
-        
-        this.dispose();
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void ShowUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowUserActionPerformed
         // TODO add your handling code here:
@@ -506,6 +483,44 @@ public class ShowUserPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UsernameInputActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new HomePageManagment().setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void AddorRemoveGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddorRemoveGameActionPerformed
+        // TODO add your handling code here:
+        new GamePage().setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_AddorRemoveGameActionPerformed
+
+    private void ShowUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowUsersActionPerformed
+        new ShowUserPage().setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_ShowUsersActionPerformed
+
+    private void ShowGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowGameActionPerformed
+        // TODO add your handling code here:
+        new ShowGamePage().setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_ShowGameActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        new RemoveUser().setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void RegisterEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterEmployeesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegisterEmployeesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -548,14 +563,15 @@ public class ShowUserPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddorRemoveGame;
+    private javax.swing.JButton RegisterEmployees;
     private javax.swing.JButton SearchUsers;
+    private javax.swing.JButton ShowGame;
     private javax.swing.JButton ShowUser;
+    private javax.swing.JButton ShowUsers;
     private javax.swing.JTable UserTable;
     private javax.swing.JTextField UsernameInput;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;

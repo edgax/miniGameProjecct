@@ -80,6 +80,5 @@ public class SimpleDBConnect {
         }
     } // End of Constructor
     public static void main(String args[]){
-    new SimpleDBConnect();
     }
 } // End of Class
