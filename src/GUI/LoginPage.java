@@ -286,11 +286,14 @@ public class LoginPage extends javax.swing.JFrame {
             PreparedStatement ps = connection.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
+            int flags = 0;
              while(rs.next()){
              String usernameDB=rs.getString("username");
              String passwordDB = rs.getString("password");
              String CateogryDB = rs.getString("Category");
             if ((username.equals(usernameDB))&&(password.equals(passwordDB) && usersSelect.equals(CateogryDB))) {
+                
+                flags = 1;
                 
                 if(SelectUser.getSelectedItem()=="Employee")
                 {
@@ -299,8 +302,7 @@ public class LoginPage extends javax.swing.JFrame {
                   this.dispose();
                   // jButton6.setVisible(true);
                 }
-                else   
-                if(SelectUser.getSelectedItem()=="Costumer")
+                else if(SelectUser.getSelectedItem()=="Costumer")
                 {
                     
                   new HomePage().setVisible(true);
@@ -308,11 +310,10 @@ public class LoginPage extends javax.swing.JFrame {
                   // jButton6.setVisible(true);
                 }
                 
-            } 
-    }
-                    
-
-           
+            }
+ 
+        }
+                           
         }
         catch(SQLException sqlex){
             System.err.println(sqlex.getMessage());
