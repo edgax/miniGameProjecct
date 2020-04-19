@@ -269,20 +269,24 @@ public class RegisterPage extends javax.swing.JFrame {
             String username =  UserNameInput.getText();
             String password =  String.valueOf(PasswordInput.getPassword());
             String email = EmailInput.getText();
+            String Category = "Costumer";
             
             System.out.print(username);
             System.out.print(password);
             System.out.print(email);
             
             // Creating SQL Statment 
-            String sql = "INSERT INTO user (Username, Password, Email)" + "VALUES(?,?,?)";
+            String sql = "INSERT INTO user (Username, Password, Email,Category)" + "VALUES(?,?,?,?)";
             
             //Preparing The statement 
             PreparedStatement ps = connection.prepareStatement(sql);
             
+            // inserting the variable into the databse
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setString(3, email);
+            ps.setString(4, Category);
+            //Excute the SQL statment
             ps.executeUpdate();
             
         }
