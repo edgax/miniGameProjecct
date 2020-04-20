@@ -371,8 +371,7 @@ public class RemoveUser extends javax.swing.JFrame {
             
             String username =  UserNameInput.getText();
             int userId = Integer.parseInt(UserIdInput.getText());
-            
-            System.out.print(userId);
+         
            
             
             // Creating SQL Statment 
@@ -381,6 +380,7 @@ public class RemoveUser extends javax.swing.JFrame {
             //Preparing The statement 
             PreparedStatement ps = connection.prepareStatement(sql);
             
+            //Select the user input and delete the record according from that
             ps.setInt(1, userId);
             ps.setString(2, username);
             

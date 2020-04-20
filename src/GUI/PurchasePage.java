@@ -369,11 +369,10 @@ public class PurchasePage extends javax.swing.JFrame {
            
             
             // Creating SQL Statment 
-            String sql = "INSERT INTO Purchase (User_ID, Game_ID ,Username,GameName,Price)"
-                    + "SELECT User_ID,  Game_ID, Username,GameName, Price "
+            String sql = "INSERT INTO Purchase (User_ID, Game_ID ,Price)"
+                    + "SELECT User_ID, Game_ID,Price"
                     + "FROM User, Game "
                     + "WHERE Username = ? AND GameName = ?";
-            
             
              PreparedStatement ps = connection.prepareStatement(sql);
             
@@ -381,10 +380,7 @@ public class PurchasePage extends javax.swing.JFrame {
              ps.setString(2, gameName);
             
              ps.execute();
-             
-       
-              
-              
+           
               
               
         }
