@@ -333,14 +333,12 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="game_name" min="-2" pref="280" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="user_name" min="-2" pref="280" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
-                                  <Component id="To_Rent_page" min="-2" pref="139" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="user_name" pref="280" max="32767" attributes="0"/>
+                              <Component id="Select_game" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+                          <Component id="To_Rent_page" min="-2" pref="139" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
@@ -351,7 +349,7 @@
                           <Component id="jLabel5" min="-2" pref="223" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="188" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -372,12 +370,12 @@
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="game_name" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                       <Component id="game_Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Select_game" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                   <Component id="Pruchas_Game" min="-2" pref="49" max="-2" attributes="0"/>
-                  <EmptySpace pref="149" max="32767" attributes="0"/>
+                  <EmptySpace pref="146" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -399,7 +397,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="Pruchas_Game">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pruchase"/>
+            <Property name="text" type="java.lang.String" value="Purchase"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pruchas_GameActionPerformed"/>
@@ -408,11 +406,6 @@
         <Component class="javax.swing.JTextField" name="user_name">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="user_nameActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="game_name">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="game_nameActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="name_Label">
@@ -444,6 +437,24 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="To_Rent_pageActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="Select_game">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="0"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="Select Game"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Select_gameActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

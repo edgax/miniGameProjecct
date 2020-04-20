@@ -24,6 +24,7 @@ public class ReturnPage extends javax.swing.JFrame {
      */
     public ReturnPage() {
         initComponents();
+        FillCombo();
     }
 
     /**
@@ -61,9 +62,9 @@ public class ReturnPage extends javax.swing.JFrame {
         FindName = new javax.swing.JButton();
         name = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        gameName = new javax.swing.JTextField();
         FindGame = new javax.swing.JButton();
+        Select_game = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -306,17 +307,6 @@ public class ReturnPage extends javax.swing.JFrame {
         jLabel6.setText("User Name");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 110, 80, 20));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Game Name");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 230, 90, 20));
-
-        gameName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gameNameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(gameName, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 260, 170, 30));
-
         FindGame.setText("Find Game");
         FindGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,269 +315,21 @@ public class ReturnPage extends javax.swing.JFrame {
         });
         getContentPane().add(FindGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 300, 140, 30));
 
+        Select_game.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Select_game.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Game" }));
+        Select_game.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Select_gameActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Select_game, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 260, -1, 30));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Game Name");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 230, 90, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Show_Rent_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Rent_infoActionPerformed
-        // TODO add your handling code here:
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
-        
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            
-           
-            // Creating SQL Statment 
-            String sql = "SELECT * FROM Rent";
-            
-            //Preparing The statement 
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
-            tm.setRowCount(0);
-            
-            while(rs.next())
-            {
-                 Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
-                 tm.addRow(o);
-            }
-            
-
-            
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
-
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-         }
-        
-        
-    }//GEN-LAST:event_Show_Rent_infoActionPerformed
-
-    private void Return_GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Return_GameActionPerformed
-        // TODO add your handling code here:
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
-        
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            
-            String username =  User_name.getText();
-            int RentId = Integer.parseInt(Rent_ID.getText());
-            
-            System.out.print(username);
-           
-            
-            // Creating SQL Statment 
-            String sql = "DELETE FROM Rent WHERE Rent_ID = ? AND Username = ?";
-            
-            //Preparing The statement 
-            PreparedStatement ps = connection.prepareStatement(sql);
-            
-            ps.setInt(1, RentId);
-            ps.setString(2, username);
-            
-            ps.executeUpdate();
-            
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
-
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-        }
-    }//GEN-LAST:event_Return_GameActionPerformed
-
-    private void gameNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gameNameActionPerformed
-
-    private void FindNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindNameActionPerformed
-        // TODO add your handling code here:
-         Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
-        
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            String Username = name.getText();
-           
-            
-            // Creating SQL Statment 
-            String sql = "SELECT * FROM Rent WHERE UserName = ?";
-            
-            //Preparing The statement 
-            PreparedStatement ps = connection.prepareStatement(sql);
-            
-            ps.setString(1,Username);
-            
-            ResultSet rs = ps.executeQuery();
-            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
-            tm.setRowCount(0);
-            
-            while(rs.next())
-            {
-                 Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
-                 tm.addRow(o);
-            }
-           
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
-
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-        }
-    }//GEN-LAST:event_FindNameActionPerformed
-
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
-
-    private void FindGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindGameActionPerformed
-        // TODO add your handling code here:
-         Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
-        
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            String GameName = gameName.getText();
-           
-            
-            // Creating SQL Statment 
-            String sql = "SELECT * FROM Rent WHERE GameName = ?";
-            
-            //Preparing The statement 
-            PreparedStatement ps = connection.prepareStatement(sql);
-            
-            ps.setString(1,GameName);
-            
-            ResultSet rs = ps.executeQuery();
-            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
-            tm.setRowCount(0);
-            
-            while(rs.next())
-            {
-                 Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
-                 tm.addRow(o);
-            }
-           
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
-
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-        }
-    }//GEN-LAST:event_FindGameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -624,6 +366,319 @@ public class ReturnPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_LogoutActionPerformed
 
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameActionPerformed
+
+    private void FindNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindNameActionPerformed
+        // TODO add your handling code here:
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String msAccDB = "..///First_DB.accdb"; // path to the DB file
+        String dbURL = "jdbc:ucanaccess://" + msAccDB;
+
+        // Step 1: Loading or registering JDBC driver class
+        try {
+            // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        }
+        catch(ClassNotFoundException cnfex) {
+            System.out.println("Problem in loading or "
+                + "registering MS Access JDBC driver");
+            cnfex.printStackTrace();
+        }
+        try {
+            // Step 2.A: Create and get connection using DriverManager class
+            connection = DriverManager.getConnection(dbURL);
+
+            //Delcaring Variable
+            String Username = name.getText();
+
+            // Creating SQL Statment
+            String sql = "SELECT * FROM Rent WHERE UserName = ?";
+
+            //Preparing The statement
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setString(1,Username);
+
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
+            tm.setRowCount(0);
+
+            while(rs.next())
+            {
+                Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
+                tm.addRow(o);
+            }
+
+        }
+        catch(SQLException sqlex){
+            System.err.println(sqlex.getMessage());
+        }
+        finally {
+
+            // Step 3: Closing database connection
+            try {
+                if(null != connection) {
+                    // cleanup resources, once after processing
+                    // and then finally close connection
+                    connection.close();
+                }
+            }
+            catch (SQLException sqlex) {
+                System.err.println(sqlex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_FindNameActionPerformed
+
+    private void Show_Rent_infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Rent_infoActionPerformed
+        // TODO add your handling code here:
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String msAccDB = "..///First_DB.accdb"; // path to the DB file
+        String dbURL = "jdbc:ucanaccess://" + msAccDB;
+
+        // Step 1: Loading or registering JDBC driver class
+        try {
+            // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        }
+        catch(ClassNotFoundException cnfex) {
+            System.out.println("Problem in loading or "
+                + "registering MS Access JDBC driver");
+            cnfex.printStackTrace();
+        }
+        try {
+            // Step 2.A: Create and get connection using DriverManager class
+            connection = DriverManager.getConnection(dbURL);
+
+            //Delcaring Variable
+
+            // Creating SQL Statment
+            String sql = "SELECT * FROM Rent";
+
+            //Preparing The statement
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
+            tm.setRowCount(0);
+
+            while(rs.next())
+            {
+                Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
+                tm.addRow(o);
+            }
+
+        }
+        catch(SQLException sqlex){
+            System.err.println(sqlex.getMessage());
+        }
+        finally {
+
+            // Step 3: Closing database connection
+            try {
+                if(null != connection) {
+                    // cleanup resources, once after processing
+                    // and then finally close connection
+                    connection.close();
+                }
+            }
+            catch (SQLException sqlex) {
+                System.err.println(sqlex.getMessage());
+            }
+        }
+
+    }//GEN-LAST:event_Show_Rent_infoActionPerformed
+
+    private void Return_GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Return_GameActionPerformed
+        // TODO add your handling code here:
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String msAccDB = "..///First_DB.accdb"; // path to the DB file
+        String dbURL = "jdbc:ucanaccess://" + msAccDB;
+
+        // Step 1: Loading or registering JDBC driver class
+        try {
+            // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        }
+        catch(ClassNotFoundException cnfex) {
+            System.out.println("Problem in loading or "
+                + "registering MS Access JDBC driver");
+            cnfex.printStackTrace();
+        }
+        try {
+            // Step 2.A: Create and get connection using DriverManager class
+            connection = DriverManager.getConnection(dbURL);
+
+            //Delcaring Variable
+
+            String username =  User_name.getText();
+            int RentId = Integer.parseInt(Rent_ID.getText());
+
+            System.out.print(username);
+
+            // Creating SQL Statment
+            String sql = "DELETE FROM Rent WHERE Rent_ID = ? AND Username = ?";
+
+            //Preparing The statement
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, RentId);
+            ps.setString(2, username);
+
+            ps.executeUpdate();
+
+        }
+        catch(SQLException sqlex){
+            System.err.println(sqlex.getMessage());
+        }
+        finally {
+
+            // Step 3: Closing database connection
+            try {
+                if(null != connection) {
+                    // cleanup resources, once after processing
+                    // and then finally close connection
+                    connection.close();
+                }
+            }
+            catch (SQLException sqlex) {
+                System.err.println(sqlex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_Return_GameActionPerformed
+
+    private void FindGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindGameActionPerformed
+        // TODO add your handling code here:
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String msAccDB = "..///First_DB.accdb"; // path to the DB file
+        String dbURL = "jdbc:ucanaccess://" + msAccDB;
+
+        // Step 1: Loading or registering JDBC driver class
+        try {
+            // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        }
+        catch(ClassNotFoundException cnfex) {
+            System.out.println("Problem in loading or "
+                + "registering MS Access JDBC driver");
+            cnfex.printStackTrace();
+        }
+        try {
+            // Step 2.A: Create and get connection using DriverManager class
+            connection = DriverManager.getConnection(dbURL);
+
+            //Delcaring Variable
+            String GameName = (String)Select_game.getSelectedItem();
+
+            // Creating SQL Statment
+            String sql = "SELECT * FROM Rent WHERE GameName = ?";
+
+            //Preparing The statement
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setString(1,GameName);
+
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
+            tm.setRowCount(0);
+
+            while(rs.next())
+            {
+                Object o[]={rs.getInt("Rent_ID"),rs.getString("UserName"),rs.getString("GameName"),rs.getString("Date")};
+                tm.addRow(o);
+            }
+
+        }
+        catch(SQLException sqlex){
+            System.err.println(sqlex.getMessage());
+        }
+        finally {
+
+            // Step 3: Closing database connection
+            try {
+                if(null != connection) {
+                    // cleanup resources, once after processing
+                    // and then finally close connection
+                    connection.close();
+                }
+            }
+            catch (SQLException sqlex) {
+                System.err.println(sqlex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_FindGameActionPerformed
+
+    private void Select_gameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Select_gameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Select_gameActionPerformed
+
+      private void FillCombo(){
+         Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String msAccDB = "..///First_DB.accdb"; // path to the DB file
+        String dbURL = "jdbc:ucanaccess://" + msAccDB;
+        
+          // Step 1: Loading or registering JDBC driver class
+        try {
+           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        }
+        catch(ClassNotFoundException cnfex) {
+            System.out.println("Problem in loading or "
+                    + "registering MS Access JDBC driver");
+            cnfex.printStackTrace();
+        }
+         try {
+            // Step 2.A: Create and get connection using DriverManager class
+            connection = DriverManager.getConnection(dbURL);
+
+           
+            
+            // Creating SQL Statment 
+            String sql = "SELECT * FROM Game";
+            
+            //Preparing The statement 
+            PreparedStatement ps = connection.prepareStatement(sql);
+            
+            
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel tm =(DefaultTableModel)Rent_table.getModel();
+            tm.setRowCount(0);
+            
+            while(rs.next())
+            {
+                 String GName =rs.getNString("GameName");
+                 Select_game.addItem(GName);
+            }
+           
+        }
+        catch(SQLException sqlex){
+            System.err.println(sqlex.getMessage());
+        }
+        finally {
+
+        // Step 3: Closing database connection
+        try {
+            if(null != connection) {
+                // cleanup resources, once after processing
+                // and then finally close connection
+                connection.close();
+            }
+        }
+        catch (SQLException sqlex) {
+            System.err.println(sqlex.getMessage());
+        }
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -669,10 +724,10 @@ public class ReturnPage extends javax.swing.JFrame {
     private javax.swing.JTextField Rent_ID;
     private javax.swing.JTable Rent_table;
     private javax.swing.JButton Return_Game;
+    private javax.swing.JComboBox<String> Select_game;
     private javax.swing.JButton ShowGame;
     private javax.swing.JButton Show_Rent_info;
     private javax.swing.JTextField User_name;
-    private javax.swing.JTextField gameName;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

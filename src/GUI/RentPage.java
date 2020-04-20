@@ -24,6 +24,7 @@ public class RentPage extends javax.swing.JFrame {
      */
     public RentPage() {
         initComponents();
+        FillCombo();
     }
 
     /**
@@ -53,12 +54,12 @@ public class RentPage extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Rent_Game = new javax.swing.JButton();
-        user_name = new javax.swing.JTextField();
-        game_name = new javax.swing.JTextField();
-        name_Label = new javax.swing.JLabel();
-        game_Label = new javax.swing.JLabel();
         date_input = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        game_Label = new javax.swing.JLabel();
+        Select_game = new javax.swing.JComboBox<>();
+        user_name = new javax.swing.JTextField();
+        name_Label = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -252,22 +253,6 @@ public class RentPage extends javax.swing.JFrame {
             }
         });
 
-        user_name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                user_nameActionPerformed(evt);
-            }
-        });
-
-        game_name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                game_nameActionPerformed(evt);
-            }
-        });
-
-        name_Label.setText("Name");
-
-        game_Label.setText("Game");
-
         date_input.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 date_inputActionPerformed(evt);
@@ -275,6 +260,24 @@ public class RentPage extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Date of Retune");
+
+        game_Label.setText("Game");
+
+        Select_game.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Select_game.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Game" }));
+        Select_game.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Select_gameActionPerformed(evt);
+            }
+        });
+
+        user_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                user_nameActionPerformed(evt);
+            }
+        });
+
+        name_Label.setText("Name");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -287,25 +290,24 @@ public class RentPage extends javax.swing.JFrame {
                         .addGap(211, 211, 211)
                         .addComponent(jLabel10))
                     .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(game_Label))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(name_Label)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(game_name, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(Rent_Game, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(date_input, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(4, 4, 4)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(game_Label)
+                                    .addComponent(name_Label, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(user_name)
+                                    .addComponent(Select_game, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(Rent_Game, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(date_input, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -315,111 +317,27 @@ public class RentPage extends javax.swing.JFrame {
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(80, 80, 80)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(name_Label))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(game_name, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(game_Label))
-                .addGap(40, 40, 40)
+                    .addComponent(game_Label)
+                    .addComponent(Select_game, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(date_input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(41, 41, 41)
                 .addComponent(Rent_Game, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 880, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Rent_GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rent_GameActionPerformed
-        // TODO add your handling code here:
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-        String msAccDB = "..///First_DB.accdb"; // path to the DB file
-        String dbURL = "jdbc:ucanaccess://" + msAccDB;
-        
-          // Step 1: Loading or registering JDBC driver class
-        try {
-           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        }
-        catch(ClassNotFoundException cnfex) {
-            System.out.println("Problem in loading or "
-                    + "registering MS Access JDBC driver");
-            cnfex.printStackTrace();
-        }
-         try {
-            // Step 2.A: Create and get connection using DriverManager class
-            connection = DriverManager.getConnection(dbURL);
-          
-            //Delcaring Variable 
-            String userName = user_name.getText();
-            String gameName = game_name.getText();
-            String date = date_input.getText();
-           
-            
-            // Creating SQL Statment 
-            String sql = "INSERT INTO Rent (User_ID, Game_ID ,Username,GameName, Rent_Price, Date )"
-                    + "VALUES(?) AND "
-                    + "SELECT User_ID,  Game_ID, Username,GameName,Rent_Price "
-                    + "FROM User, Game "
-                    + "WHERE Username = ? AND GameName = ?";
-            
-            
-             PreparedStatement ps = connection.prepareStatement(sql);
-            
-             ps.setString(1, date);
-             ps.setString(2, userName);
-             ps.setString(3, gameName);
-            
-             ps.execute();
-             
-       
-              
-              
-              
-              
-        }
-        catch(SQLException sqlex){
-            System.err.println(sqlex.getMessage());
-        }
-        finally {
-
-        // Step 3: Closing database connection
-        try {
-            if(null != connection) {
-                // cleanup resources, once after processing
-                // and then finally close connection
-                connection.close();
-            }
-        }
-        catch (SQLException sqlex) {
-            System.err.println(sqlex.getMessage());
-        }
-        }
-
-        
-        
-    }//GEN-LAST:event_Rent_GameActionPerformed
-
-    private void user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_user_nameActionPerformed
-
-    private void game_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_game_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_game_nameActionPerformed
-
-    private void date_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date_inputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_date_inputActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -456,6 +374,138 @@ public class RentPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_LogoutActionPerformed
 
+    private void Rent_GameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rent_GameActionPerformed
+        // TODO add your handling code here:
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String msAccDB = "..///First_DB.accdb"; // path to the DB file
+        String dbURL = "jdbc:ucanaccess://" + msAccDB;
+
+        // Step 1: Loading or registering JDBC driver class
+        try {
+            // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        }
+        catch(ClassNotFoundException cnfex) {
+            System.out.println("Problem in loading or "
+                + "registering MS Access JDBC driver");
+            cnfex.printStackTrace();
+        }
+        try {
+            // Step 2.A: Create and get connection using DriverManager class
+            connection = DriverManager.getConnection(dbURL);
+
+            //Delcaring Variable
+            String userName = user_name.getText();
+            String gameName = (String)Select_game.getSelectedItem();
+            String date = date_input.getText();
+
+            // Creating SQL Statment
+            String sql = "INSERT INTO Rent (User_ID, Game_ID ,Username,GameName ) "
+            // + "VALUES(?) AND "
+            + "SELECT User_ID,  Game_ID, Username, GameName  "
+            + "FROM User, Game "
+            + "WHERE Username = ? AND GameName = ?";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            //ps.setString(1, date);
+            ps.setString(1, userName);
+            ps.setString(2, gameName);
+
+            ps.execute();
+
+        }
+        catch(SQLException sqlex){
+            System.err.println(sqlex.getMessage());
+        }
+        finally {
+
+            // Step 3: Closing database connection
+            try {
+                if(null != connection) {
+                    // cleanup resources, once after processing
+                    // and then finally close connection
+                    connection.close();
+                }
+            }
+            catch (SQLException sqlex) {
+                System.err.println(sqlex.getMessage());
+            }
+        }
+
+    }//GEN-LAST:event_Rent_GameActionPerformed
+
+    private void date_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date_inputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date_inputActionPerformed
+
+    private void Select_gameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Select_gameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Select_gameActionPerformed
+
+    private void user_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_user_nameActionPerformed
+
+     private void FillCombo(){
+         Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String msAccDB = "..///First_DB.accdb"; // path to the DB file
+        String dbURL = "jdbc:ucanaccess://" + msAccDB;
+        
+          // Step 1: Loading or registering JDBC driver class
+        try {
+           // Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        }
+        catch(ClassNotFoundException cnfex) {
+            System.out.println("Problem in loading or "
+                    + "registering MS Access JDBC driver");
+            cnfex.printStackTrace();
+        }
+         try {
+            // Step 2.A: Create and get connection using DriverManager class
+            connection = DriverManager.getConnection(dbURL);
+
+            
+            // Creating SQL Statment 
+            String sql = "SELECT * FROM Game";
+            
+            //Preparing The statement 
+            PreparedStatement ps = connection.prepareStatement(sql);
+            
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                 String GName =rs.getNString("GameName");
+                 Select_game.addItem(GName);
+            }
+           
+        }
+        catch(SQLException sqlex){
+            System.err.println(sqlex.getMessage());
+        }
+        finally {
+
+        // Step 3: Closing database connection
+        try {
+            if(null != connection) {
+                // cleanup resources, once after processing
+                // and then finally close connection
+                connection.close();
+            }
+        }
+        catch (SQLException sqlex) {
+            System.err.println(sqlex.getMessage());
+        }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -501,10 +551,10 @@ public class RentPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Logout;
     private javax.swing.JButton Rent_Game;
+    private javax.swing.JComboBox<String> Select_game;
     private javax.swing.JButton ShowGame;
     private javax.swing.JTextField date_input;
     private javax.swing.JLabel game_Label;
-    private javax.swing.JTextField game_name;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
