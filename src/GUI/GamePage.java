@@ -634,6 +634,9 @@ public class GamePage extends javax.swing.JFrame {
 
     private void RegisterEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterEmployeesActionPerformed
         // TODO add your handling code here:
+        new EmployeePage().setVisible(true);
+
+        this.dispose();
     }//GEN-LAST:event_RegisterEmployeesActionPerformed
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
